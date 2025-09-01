@@ -333,7 +333,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen>
                             : _buildFormContent(),
                       ),
 
-                      const Spacer(),
 
                       SizedBox(height: 2.h),
                     ],
