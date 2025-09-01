@@ -119,7 +119,7 @@ class AppTheme {
     ),
 
     // Card theme - Subtle elevation without heavy visual weight
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: cardLight,
       elevation: 2,
       shadowColor: shadowLight,
@@ -349,7 +349,7 @@ class AppTheme {
     ),
 
     // Tab bar theme
-    tabBarTheme: TabBarTheme(
+    tabBarTheme: TabBarThemeData(
       labelColor: primaryLight,
       unselectedLabelColor: onSurfaceVariantLight,
       indicatorColor: primaryLight,
@@ -397,7 +397,7 @@ class AppTheme {
     ),
 
     // Dialog theme
-    dialogTheme: DialogTheme(
+    dialogTheme: DialogThemeData(
       backgroundColor: dialogLight,
       surfaceTintColor: Colors.transparent,
       elevation: 8,
@@ -480,7 +480,7 @@ class AppTheme {
     ),
 
     // Card theme - Subtle elevation for dark mode
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: cardDark,
       elevation: 2,
       shadowColor: shadowDark,
@@ -710,7 +710,7 @@ class AppTheme {
     ),
 
     // Tab bar theme for dark mode
-    tabBarTheme: TabBarTheme(
+    tabBarTheme: TabBarThemeData(
       labelColor: primaryDark,
       unselectedLabelColor: onSurfaceVariantDark,
       indicatorColor: primaryDark,
@@ -758,7 +758,7 @@ class AppTheme {
     ),
 
     // Dialog theme for dark mode
-    dialogTheme: DialogTheme(
+    dialogTheme: DialogThemeData(
       backgroundColor: dialogDark,
       surfaceTintColor: Colors.transparent,
       elevation: 8,
