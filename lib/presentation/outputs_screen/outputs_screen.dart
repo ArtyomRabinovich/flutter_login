@@ -50,7 +50,7 @@ class OutputsScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.movie_outlined, size: 20.w, color: Colors.white.withOpacity(0.3)),
+          Icon(Icons.movie_outlined, size: 20.w, color: Colors.white.withAlpha((255 * 0.3).round())),
           SizedBox(height: 2.h),
           Text(
             'No Exports Yet',
@@ -64,7 +64,7 @@ class OutputsScreen extends StatelessWidget {
             'Your rendered videos will appear here.',
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
-                fontSize: 14.sp, color: Colors.white.withOpacity(0.7)),
+                fontSize: 14.sp, color: Colors.white.withAlpha((255 * 0.7).round())),
           ),
         ],
       ),
@@ -128,7 +128,7 @@ class ExportCard extends StatelessWidget {
                   SizedBox(height: 0.5.h),
                   Text(
                     '${video.date.day}/${video.date.month} • ${video.resolution} • ${video.size}',
-                    style: GoogleFonts.inter(fontSize: 10.sp, color: Colors.white.withOpacity(0.6)),
+                    style: GoogleFonts.inter(fontSize: 10.sp, color: Colors.white.withAlpha((255 * 0.6).round())),
                   ),
                   Spacer(),
                   Row(

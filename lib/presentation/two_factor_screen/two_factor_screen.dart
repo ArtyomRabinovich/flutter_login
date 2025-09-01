@@ -7,6 +7,7 @@ import '../../routes/app_routes.dart';
 import '../../widgets/shared/background_shape.dart';
 import '../../widgets/shared/glass_container.dart';
 import '../../widgets/shared/neon_button.dart';
+import '../../widgets/shared/custom_text_field.dart';
 
 class TwoFactorScreen extends StatefulWidget {
   const TwoFactorScreen({Key? key}) : super(key: key);
@@ -162,7 +163,7 @@ class _TwoFactorScreenState extends State<TwoFactorScreen>
                         textAlign: TextAlign.center,
                         style: GoogleFonts.inter(
                             fontSize: 14.sp,
-                            color: Colors.white.withOpacity(0.7))),
+                            color: Colors.white.withAlpha((255 * 0.7).round()))),
                     SizedBox(height: 4.h),
                     _buildCodeInput(),
                     if (_errorMessage.isNotEmpty) ...[
@@ -227,73 +228,15 @@ class _TwoFactorScreenState extends State<TwoFactorScreen>
           onPressed: _isLoading ? null : () {},
           child: Text('Resend Code',
               style:
-                  GoogleFonts.inter(color: Colors.white.withOpacity(0.7))),
+                  GoogleFonts.inter(color: Colors.white.withAlpha((255 * 0.7).round()))),
         ),
         TextButton(
           onPressed: _isLoading ? null : () {},
           child: Text('Use Backup Code',
               style:
-                  GoogleFonts.inter(color: Colors.white.withOpacity(0.7))),
+                  GoogleFonts.inter(color: Colors.white.withAlpha((255 * 0.7).round()))),
         ),
       ],
-    );
-  }
-}
-
-// A more customized text field for the OTP boxes
-class CustomOtpTextField extends CustomTextField {
-  final TextAlign textAlign;
-  final TextStyle? style;
-  final EdgeInsets contentPadding;
-  final List<TextInputFormatter>? inputFormatters;
-
-  const CustomOtpTextField({
-    required TextEditingController controller,
-    required FocusNode focusNode,
-    required ValueChanged<String> onFieldSubmitted,
-    bool enabled = true,
-    this.textAlign = TextAlign.left,
-    this.style,
-    this.contentPadding = const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
-    this.inputFormatters,
-  }) : super(
-          controller: controller,
-          focusNode: focusNode,
-          hintText: '',
-          enabled: enabled,
-          onFieldSubmitted: onFieldSubmitted,
-          keyboardType: TextInputType.number,
-        );
-
-  @override
-  Widget build(BuildContext context) {
-    // Re-implementing build method to add specific properties
-    return TextFormField(
-      controller: controller,
-      focusNode: focusNode,
-      enabled: enabled,
-      onChanged: onFieldSubmitted, // Using onChanged for immediate focus shift
-      style: style,
-      textAlign: textAlign,
-      inputFormatters: inputFormatters,
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: Colors.black.withOpacity(0.2),
-        contentPadding: contentPadding,
-        counterText: '', // Hide the counter
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide.none,
-        ),
-         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
-            color: Color(0xFF5A67F8).withOpacity(0.8),
-            width: 2,
-          ),
-        ),
-      ),
-      maxLength: 1,
     );
   }
 }

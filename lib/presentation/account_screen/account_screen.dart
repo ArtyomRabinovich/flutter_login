@@ -64,13 +64,13 @@ class AccountScreen extends StatelessWidget {
                   Text('jules.verne@example.com',
                       style: GoogleFonts.inter(
                           fontSize: 12.sp,
-                          color: Colors.white.withOpacity(0.7))),
+                          color: Colors.white.withAlpha((255 * 0.7).round()))),
                 ],
               ),
             ],
           ),
           SizedBox(height: 2.h),
-          Divider(color: Colors.white.withOpacity(0.2)),
+          Divider(color: Colors.white.withAlpha((255 * 0.2).round())),
           SizedBox(height: 1.h),
           _buildAccountAction(
               context, 'Edit Name', () {}),
@@ -109,7 +109,7 @@ class AccountScreen extends StatelessWidget {
                     Text('Renews on 2025-09-30',
                         style: GoogleFonts.inter(
                             fontSize: 11.sp,
-                            color: Colors.white.withOpacity(0.7))),
+                            color: Colors.white.withAlpha((255 * 0.7).round()))),
                   ],
                 ),
               ],
@@ -142,7 +142,7 @@ class AccountScreen extends StatelessWidget {
         SizedBox(height: 1.h),
         LinearProgressIndicator(
           value: value / total,
-          backgroundColor: Colors.white.withOpacity(0.2),
+          backgroundColor: Colors.white.withAlpha((255 * 0.2).round()),
           color: const Color(0xFF5A67F8),
           minHeight: 8,
           borderRadius: BorderRadius.circular(4),
@@ -201,19 +201,6 @@ class AccountScreen extends StatelessWidget {
             text: 'Log Out',
             onPressed: () => _showLogoutDialog(context),
             isPrimary: false, // Custom style will be applied
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: Colors.red.shade400),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.red.shade400.withOpacity(0.3),
-                    blurRadius: 10,
-                    spreadRadius: 2,
-                  )
-                ],
-              ),
-            ),
           ),
         ],
       ),
@@ -224,7 +211,7 @@ class AccountScreen extends StatelessWidget {
     return ListTile(
       title: Text(title, style: GoogleFonts.inter(color: Colors.white)),
       trailing: Icon(Icons.arrow_forward_ios,
-          color: Colors.white.withOpacity(0.5), size: 16),
+          color: Colors.white.withAlpha((255 * 0.5).round()), size: 16),
       onTap: onTap,
       contentPadding: EdgeInsets.zero,
     );

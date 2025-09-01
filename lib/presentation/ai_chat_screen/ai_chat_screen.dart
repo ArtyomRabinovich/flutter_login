@@ -125,8 +125,6 @@ class _AiChatScreenState extends State<AiChatScreen> {
             return ProposalCard(message: message as ProposalMessage);
           case MessageType.system:
             return SystemMessageBubble(message: message as SystemMessage);
-          default:
-            return const SizedBox.shrink();
         }
       },
     );
@@ -221,7 +219,7 @@ class SystemMessageBubble extends StatelessWidget {
         margin: EdgeInsets.symmetric(vertical: 1.h),
         padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
         decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.3),
+          color: Colors.black.withAlpha((255 * 0.3).round()),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(message.text, style: GoogleFonts.inter(color: Colors.white70, fontSize: 11.sp)),

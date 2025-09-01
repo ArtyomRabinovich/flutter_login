@@ -123,7 +123,7 @@ class CheckoutScreen extends StatelessWidget {
           _buildSummaryRow('Billing Cycle:', 'Annually'),
           _buildSummaryRow('Subtotal:', '\$191.90'),
           _buildSummaryRow('Taxes:', '\$9.60'),
-          Divider(color: Colors.white.withOpacity(0.2), height: 4.h),
+          Divider(color: Colors.white.withAlpha((255 * 0.2).round()), height: 4.h),
           _buildSummaryRow('Total:', '\$201.50', isTotal: true),
         ],
       ),

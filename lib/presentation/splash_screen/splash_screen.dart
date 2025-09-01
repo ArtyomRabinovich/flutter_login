@@ -25,7 +25,6 @@ class _SplashScreenState extends State<SplashScreen>
   late Animation<double> _fadeAnimation;
   late Animation<double> _shapesAnimation;
 
-  bool _isInitialized = false;
   String _loadingText = "Initializing...";
 
   @override
@@ -121,7 +120,6 @@ class _SplashScreenState extends State<SplashScreen>
       await Future.delayed(const Duration(milliseconds: 500));
 
       setState(() {
-        _isInitialized = true;
         _loadingText = "Ready!";
       });
 

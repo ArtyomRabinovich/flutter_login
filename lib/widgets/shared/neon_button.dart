@@ -67,7 +67,7 @@ class NeonButton extends StatelessWidget {
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
             child: Container(
-              color: Colors.black.withOpacity(0.45),
+              color: Colors.black.withAlpha((255 * 0.45).round()),
             ),
           ),
         ),
@@ -108,10 +108,10 @@ class NeonButton extends StatelessWidget {
         filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.black.withAlpha((255 * 0.3).round()),
             borderRadius: BorderRadius.circular(radius),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withAlpha((255 * 0.2).round()),
               width: 1.5,
             ),
           ),
@@ -147,7 +147,7 @@ class _ButtonLabel extends StatelessWidget {
       style: GoogleFonts.inter(
         fontSize: fontSize,
         fontWeight: FontWeight.bold,
-        color: Colors.white.withOpacity(0.95),
+        color: Colors.white.withAlpha((255 * 0.95).round()),
         letterSpacing: 0.5,
       ),
     );
@@ -177,7 +177,7 @@ class _NeonOuterHaloPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 8
       ..shader = LinearGradient(
-        colors: [primary.withOpacity(0.1), secondary.withOpacity(0.1)],
+        colors: [primary.withAlpha((255 * 0.1).round()), secondary.withAlpha((255 * 0.1).round())],
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
       ).createShader(rect)
@@ -190,7 +190,7 @@ class _NeonOuterHaloPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 8
       ..shader = LinearGradient(
-        colors: [primary.withOpacity(0.4), secondary.withOpacity(0.4)],
+        colors: [primary.withAlpha((255 * 0.4).round()), secondary.withAlpha((255 * 0.4).round())],
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
       ).createShader(rect)
@@ -238,7 +238,7 @@ class _NeonInnerPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 60
       ..shader = LinearGradient(
-        colors: [primary.withOpacity(0.2), secondary.withOpacity(0.2)],
+        colors: [primary.withAlpha((255 * 0.2).round()), secondary.withAlpha((255 * 0.2).round())],
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
       ).createShader(rect)
@@ -250,7 +250,7 @@ class _NeonInnerPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.6
       ..shader = LinearGradient(
-        colors: [primary.withOpacity(0.95), secondary.withOpacity(0.95)],
+        colors: [primary.withAlpha((255 * 0.95).round()), secondary.withAlpha((255 * 0.95).round())],
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
       ).createShader(rect)
@@ -270,7 +270,7 @@ class _NeonInnerPainter extends CustomPainter {
       ..isAntiAlias = true
       ..style = PaintingStyle.fill
       ..shader = LinearGradient(
-        colors: [primary.withOpacity(0.75), Colors.transparent],
+        colors: [primary.withAlpha((255 * 0.75).round()), Colors.transparent],
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
       ).createShader(leftRect.outerRect)
@@ -286,7 +286,7 @@ class _NeonInnerPainter extends CustomPainter {
       ..isAntiAlias = true
       ..style = PaintingStyle.fill
       ..shader = LinearGradient(
-        colors: [Colors.transparent, secondary.withOpacity(0.75)],
+        colors: [Colors.transparent, secondary.withAlpha((255 * 0.75).round())],
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
       ).createShader(rightRect.outerRect)

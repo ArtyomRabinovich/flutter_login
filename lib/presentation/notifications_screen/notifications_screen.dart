@@ -66,7 +66,7 @@ class NotificationsScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.notifications_off_outlined, size: 20.w, color: Colors.white.withOpacity(0.3)),
+          Icon(Icons.notifications_off_outlined, size: 20.w, color: Colors.white.withAlpha((255 * 0.3).round())),
           SizedBox(height: 2.h),
           Text(
             'All Caught Up!',
@@ -80,7 +80,7 @@ class NotificationsScreen extends StatelessWidget {
             'You have no new notifications.',
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
-                fontSize: 14.sp, color: Colors.white.withOpacity(0.7)),
+                fontSize: 14.sp, color: Colors.white.withAlpha((255 * 0.7).round())),
           ),
         ],
       ),
@@ -97,7 +97,7 @@ class NotificationsScreen extends StatelessWidget {
           margin: EdgeInsets.only(bottom: 2.h),
           child: ListTile(
             leading: CircleAvatar(
-              backgroundColor: notification.iconColor.withOpacity(0.2),
+              backgroundColor: notification.iconColor.withAlpha((255 * 0.2).round()),
               child: Icon(notification.icon, color: notification.iconColor),
             ),
             title: Text(notification.title, style: GoogleFonts.inter(fontWeight: FontWeight.bold, color: Colors.white)),

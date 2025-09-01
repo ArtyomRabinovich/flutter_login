@@ -42,7 +42,7 @@ class InvoicesScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.receipt_long_outlined, size: 20.w, color: Colors.white.withOpacity(0.3)),
+          Icon(Icons.receipt_long_outlined, size: 20.w, color: Colors.white.withAlpha((255 * 0.3).round())),
           SizedBox(height: 2.h),
           Text(
             'No Invoices Found',
@@ -56,7 +56,7 @@ class InvoicesScreen extends StatelessWidget {
             'Your billing history will appear here.',
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
-                fontSize: 14.sp, color: Colors.white.withOpacity(0.7)),
+                fontSize: 14.sp, color: Colors.white.withAlpha((255 * 0.7).round())),
           ),
         ],
       ),

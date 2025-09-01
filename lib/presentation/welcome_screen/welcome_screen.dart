@@ -150,7 +150,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                               textAlign: TextAlign.center,
                               style: GoogleFonts.inter(
                                 fontSize: 16.sp,
-                                color: Colors.white.withOpacity(0.8),
+                                color: Colors.white.withAlpha((255 * 0.8).round()),
                               ),
                             ),
                           ],
@@ -177,7 +177,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                         child: Text(
                           'Learn more',
                           style: GoogleFonts.inter(
-                            color: Colors.white.withOpacity(0.6),
+                            color: Colors.white.withAlpha((255 * 0.6).round()),
                             fontSize: 12.sp,
                           ),
                         ),

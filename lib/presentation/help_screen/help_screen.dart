@@ -62,7 +62,7 @@ class HelpScreen extends StatelessWidget {
       child: Text(
         'App Version 1.0.0', // This could be fetched dynamically
         textAlign: TextAlign.center,
-        style: GoogleFonts.inter(color: Colors.white.withOpacity(0.5), fontSize: 10.sp),
+        style: GoogleFonts.inter(color: Colors.white.withAlpha((255 * 0.5).round()), fontSize: 10.sp),
       ),
     );
   }

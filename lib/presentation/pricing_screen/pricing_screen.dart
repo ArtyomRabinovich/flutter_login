@@ -148,7 +148,7 @@ class PlanCard extends StatelessWidget {
                   color: Colors.white)),
           Text(plan.tagline,
               style: GoogleFonts.inter(
-                  fontSize: 12.sp, color: Colors.white.withOpacity(0.7))),
+                  fontSize: 12.sp, color: Colors.white.withAlpha((255 * 0.7).round()))),
           SizedBox(height: 2.h),
           Row(
             crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -163,12 +163,12 @@ class PlanCard extends StatelessWidget {
               Text(
                 price == 0 ? '' : (cycle == BillingCycle.monthly ? '/month' : '/year'),
                 style: GoogleFonts.inter(
-                    fontSize: 14.sp, color: Colors.white.withOpacity(0.7)),
+                    fontSize: 14.sp, color: Colors.white.withAlpha((255 * 0.7).round())),
               ),
             ],
           ),
           SizedBox(height: 2.h),
-          Divider(color: Colors.white.withOpacity(0.2)),
+          Divider(color: Colors.white.withAlpha((255 * 0.2).round())),
           SizedBox(height: 2.h),
           ...plan.features.map((feature) => _buildFeatureRow(feature)),
            SizedBox(height: 3.h),

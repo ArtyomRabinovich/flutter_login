@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 /// A text form field with the app's custom "glass" styling.
@@ -13,6 +14,11 @@ class CustomTextField extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final void Function(String)? onFieldSubmitted;
+  final List<TextInputFormatter>? inputFormatters;
+  final TextAlign textAlign;
+  final TextStyle? style;
+  final EdgeInsetsGeometry? contentPadding;
+
 
   const CustomTextField({
     Key? key,
@@ -26,6 +32,10 @@ class CustomTextField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.onFieldSubmitted,
+    this.inputFormatters,
+    this.textAlign = TextAlign.start,
+    this.style,
+    this.contentPadding,
   }) : super(key: key);
 
   @override
@@ -40,15 +50,17 @@ class CustomTextField extends StatelessWidget {
       validator: validator,
       enabled: enabled,
       onFieldSubmitted: onFieldSubmitted,
-      style: GoogleFonts.inter(color: Colors.white, fontSize: 16),
+      inputFormatters: inputFormatters,
+      textAlign: textAlign,
+      style: style ?? GoogleFonts.inter(color: Colors.white, fontSize: 16),
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: GoogleFonts.inter(
-          color: Colors.white.withOpacity(0.5),
+          color: Colors.white.withAlpha((255 * 0.5).round()),
         ),
         filled: true,
-        fillColor: Colors.black.withOpacity(0.2),
-        contentPadding: const EdgeInsets.symmetric(
+        fillColor: Colors.black.withAlpha((255 * 0.2).round()),
+        contentPadding: contentPadding ?? const EdgeInsets.symmetric(
           vertical: 18,
           horizontal: 20,
         ),
@@ -56,7 +68,7 @@ class CustomTextField extends StatelessWidget {
             ? Padding(
                 padding: const EdgeInsets.only(left: 16, right: 12),
                 child: IconTheme(
-                  data: IconThemeData(color: Colors.white.withOpacity(0.5)),
+                  data: IconThemeData(color: Colors.white.withAlpha((255 * 0.5).round())),
                   child: prefixIcon!,
                 ),
               )
@@ -65,14 +77,14 @@ class CustomTextField extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
           borderSide: BorderSide(
-            color: Colors.white.withOpacity(0.1),
+            color: Colors.white.withAlpha((255 * 0.1).round()),
             width: 1.5,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
           borderSide: BorderSide(
-            color: primaryColor.withOpacity(0.8),
+            color: primaryColor.withAlpha((255 * 0.8).round()),
             width: 2,
           ),
         ),
@@ -87,7 +99,7 @@ class CustomTextField extends StatelessWidget {
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
           borderSide: BorderSide(
-            color: Colors.white.withOpacity(0.05),
+            color: Colors.white.withAlpha((255 * 0.05).round()),
             width: 1.5,
           ),
         ),

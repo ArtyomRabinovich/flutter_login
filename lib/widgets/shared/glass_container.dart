@@ -29,10 +29,10 @@ class GlassContainer extends StatelessWidget {
         // A subtle gradient outline that mimics the neon glow of buttons.
         gradient: LinearGradient(
           colors: [
-            primaryColor.withOpacity(0.15),
+            primaryColor.withAlpha((255 * 0.15).round()),
             Colors.transparent,
             Colors.transparent,
-            secondaryColor.withOpacity(0.15),
+            secondaryColor.withAlpha((255 * 0.15).round()),
           ],
           stops: const [0.0, 0.4, 0.6, 1.0],
           begin: Alignment.topLeft,
@@ -49,7 +49,7 @@ class GlassContainer extends StatelessWidget {
             child: Container(
               padding: padding ?? const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.25),
+                color: Colors.black.withAlpha((255 * 0.25).round()),
                 // The inner border is handled by the parent's padding
               ),
               child: child,

@@ -148,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(Icons.create_new_folder_outlined,
-              size: 20.w, color: Colors.white.withOpacity(0.3)),
+              size: 20.w, color: Colors.white.withAlpha((255 * 0.3).round())),
           SizedBox(height: 2.h),
           Text(
             'Your workspace is empty',
@@ -162,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
             'Create your first project to get started.',
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
-                fontSize: 14.sp, color: Colors.white.withOpacity(0.7)),
+                fontSize: 14.sp, color: Colors.white.withAlpha((255 * 0.7).round())),
           ),
         ],
       ),
@@ -293,7 +293,7 @@ class ProjectCard extends StatelessWidget {
             Text(
               'Modified: ${project.lastModified.day}/${project.lastModified.month}',
               style: GoogleFonts.inter(
-                  fontSize: 10.sp, color: Colors.white.withOpacity(0.6)),
+                  fontSize: 10.sp, color: Colors.white.withAlpha((255 * 0.6).round())),
             ),
             Spacer(),
             Row(
@@ -313,7 +313,7 @@ class ProjectCard extends StatelessWidget {
   Widget _buildSelectionOverlay() {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFF5A67F8).withOpacity(0.4),
+        color: Color(0xFF5A67F8).withAlpha((255 * 0.4).round()),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: Color(0xFF5A67F8), width: 2),
       ),
@@ -341,7 +341,7 @@ class ProjectCardSkeleton extends StatelessWidget {
             flex: 3,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.1),
+                color: Colors.white.withAlpha((255 * 0.1).round()),
                 borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
               ),
             ),
@@ -355,10 +355,10 @@ class ProjectCardSkeleton extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                      height: 2.h, width: 30.w, color: Colors.white.withOpacity(0.2)),
+                      height: 2.h, width: 30.w, color: Colors.white.withAlpha((255 * 0.2).round())),
                   SizedBox(height: 1.h),
                   Container(
-                      height: 1.5.h, width: 20.w, color: Colors.white.withOpacity(0.1)),
+                      height: 1.5.h, width: 20.w, color: Colors.white.withAlpha((255 * 0.1).round())),
                 ],
               ),
             ),

@@ -154,7 +154,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                       Text('Join us to start your journey.',
                           style: GoogleFonts.inter(
                               fontSize: 14.sp,
-                              color: Colors.white.withOpacity(0.7))),
+                              color: Colors.white.withAlpha((255 * 0.7).round()))),
                       SizedBox(height: 4.h),
                       _buildSocialButtons(),
                       SizedBox(height: 3.h),
@@ -190,7 +190,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                               _isPasswordVisible
                                   ? Icons.visibility_off
                                   : Icons.visibility,
-                              color: Colors.white.withOpacity(0.5)),
+                              color: Colors.white.withAlpha((255 * 0.5).round())),
                           onPressed: () => setState(
                               () => _isPasswordVisible = !_isPasswordVisible),
                         ),
@@ -229,16 +229,14 @@ class _SignUpScreenState extends State<SignUpScreen>
                 text: 'Google',
                 onPressed: () {},
                 isPrimary: false,
-                fontSize: 14,
-                child: Icon(Icons.android, color: Colors.white))), // Placeholder
+                fontSize: 14)),
         SizedBox(width: 2.w),
         Expanded(
             child: NeonButton(
                 text: 'Apple',
                 onPressed: () {},
                 isPrimary: false,
-                fontSize: 14,
-                child: Icon(Icons.apple, color: Colors.white))),
+                fontSize: 14)),
       ],
     );
   }
@@ -246,14 +244,14 @@ class _SignUpScreenState extends State<SignUpScreen>
   Widget _buildDivider() {
     return Row(
       children: [
-        Expanded(child: Divider(color: Colors.white.withOpacity(0.2))),
+        Expanded(child: Divider(color: Colors.white.withAlpha((255 * 0.2).round()))),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 4.w),
           child: Text('OR',
               style: GoogleFonts.inter(
-                  color: Colors.white.withOpacity(0.5), fontSize: 12.sp)),
+                  color: Colors.white.withAlpha((255 * 0.5).round()), fontSize: 12.sp)),
         ),
-        Expanded(child: Divider(color: Colors.white.withOpacity(0.2))),
+        Expanded(child: Divider(color: Colors.white.withAlpha((255 * 0.2).round()))),
       ],
     );
   }
@@ -264,11 +262,11 @@ class _SignUpScreenState extends State<SignUpScreen>
       children: [
         Text('Password Strength',
             style: GoogleFonts.inter(
-                color: Colors.white.withOpacity(0.7), fontSize: 11.sp)),
+                color: Colors.white.withAlpha((255 * 0.7).round()), fontSize: 11.sp)),
         SizedBox(height: 1.h),
         LinearProgressIndicator(
           value: _passwordStrength,
-          backgroundColor: Colors.grey.withOpacity(0.3),
+          backgroundColor: Colors.grey.withAlpha((255 * 0.3).round()),
           color: Color.lerp(Colors.red, Colors.green, _passwordStrength),
           minHeight: 6,
           borderRadius: BorderRadius.circular(3),
@@ -285,13 +283,13 @@ class _SignUpScreenState extends State<SignUpScreen>
           onChanged: (value) => setState(() => _agreedToTerms = value!),
           checkColor: Colors.black,
           fillColor: WidgetStateProperty.all(Colors.white),
-          side: BorderSide(color: Colors.white.withOpacity(0.5)),
+          side: BorderSide(color: Colors.white.withAlpha((255 * 0.5).round())),
         ),
         Expanded(
           child: RichText(
             text: TextSpan(
               style: GoogleFonts.inter(
-                  color: Colors.white.withOpacity(0.7), fontSize: 11.sp),
+                  color: Colors.white.withAlpha((255 * 0.7).round()), fontSize: 11.sp),
               children: [
                 TextSpan(text: 'I agree to the '),
                 TextSpan(
@@ -326,7 +324,7 @@ class _SignUpScreenState extends State<SignUpScreen>
       textAlign: TextAlign.center,
       text: TextSpan(
         style: GoogleFonts.inter(
-            color: Colors.white.withOpacity(0.7), fontSize: 12.sp),
+            color: Colors.white.withAlpha((255 * 0.7).round()), fontSize: 12.sp),
         children: [
           TextSpan(text: 'Already have an account? '),
           TextSpan(

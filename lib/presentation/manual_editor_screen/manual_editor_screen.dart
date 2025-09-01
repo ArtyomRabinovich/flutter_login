@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
@@ -47,9 +48,9 @@ class ManualEditorScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.play_circle_fill, color: Colors.white.withOpacity(0.8), size: 15.w),
+              Icon(Icons.play_circle_fill, color: Colors.white.withAlpha((255 * 0.8).round()), size: 15.w),
               SizedBox(height: 2.h),
-              Text('00:00:12:34', style: GoogleFonts.source_code_pro(color: Colors.white, fontSize: 18.sp)),
+              Text('00:00:12:34', style: GoogleFonts.getFont('Source Code Pro', color: Colors.white, fontSize: 18.sp)),
             ],
           ),
         ),
@@ -66,9 +67,9 @@ class ManualEditorScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.layers, color: Colors.white.withOpacity(0.3), size: 10.w),
+              Icon(Icons.layers, color: Colors.white.withAlpha((255 * 0.3).round()), size: 10.w),
               SizedBox(height: 1.h),
-              Text('Timeline (V1, A1, A2)', style: GoogleFonts.inter(color: Colors.white.withOpacity(0.5))),
+              Text('Timeline (V1, A1, A2)', style: GoogleFonts.inter(color: Colors.white.withAlpha((255 * 0.5).round()))),
             ],
           ),
         ),
@@ -144,9 +145,9 @@ class GlassInspectorSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFF1E293B).withOpacity(0.8),
+        color: Color(0xFF1E293B).withAlpha((255 * 0.8).round()),
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        border: Border.all(color: Colors.white.withOpacity(0.2)),
+        border: Border.all(color: Colors.white.withAlpha((255 * 0.2).round())),
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -161,7 +162,7 @@ class GlassInspectorSheet extends StatelessWidget {
                   width: 10.w,
                   height: 5,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.4),
+                    color: Colors.white.withAlpha((255 * 0.4).round()),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),

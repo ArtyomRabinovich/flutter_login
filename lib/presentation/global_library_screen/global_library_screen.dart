@@ -16,12 +16,10 @@ class GlobalLibraryScreen extends StatelessWidget {
         backgroundColor: const Color(0xFF14141D),
         appBar: _buildAppBar(context),
         body: _buildBody(),
-        floatingActionButton: NeonButton(
-          width: 60,
-          height: 60,
+        floatingActionButton: FloatingActionButton(
           onPressed: () {},
-          text: '',
           child: Icon(Icons.add, color: Colors.white),
+          backgroundColor: const Color(0xFF5A67F8),
         ),
       ),
     );
@@ -162,7 +160,7 @@ class BrandKitView extends StatelessWidget {
               color: color,
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Center(child: Text('#${color.value.toRadixString(16).substring(2)}', style: GoogleFonts.source_code_pro(color: Colors.white, shadows: [Shadow(blurRadius: 2)]))),
+            child: Center(child: Text('#${color.value.toRadixString(16).substring(2)}', style: GoogleFonts.getFont('Source Code Pro', color: Colors.white, shadows: [Shadow(blurRadius: 2)]))),
           );
         },
       ),
