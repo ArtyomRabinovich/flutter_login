@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import 'dart:async';
 
+import '../../routes/app_routes.dart';
 import '../../widgets/shared/glass_container.dart';
 import '../../widgets/shared/neon_button.dart';
 import '../../widgets/shared/custom_text_field.dart';
@@ -85,9 +86,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> _buildDefaultActions() {
     return [
-      IconButton(onPressed: () {}, icon: Icon(Icons.video_library_outlined)),
-      IconButton(onPressed: () {}, icon: Icon(Icons.notifications_outlined)),
-      IconButton(onPressed: () {}, icon: Icon(Icons.account_circle_outlined)),
+      IconButton(onPressed: () => Navigator.pushNamed(context, AppRoutes.globalLibrary), icon: Icon(Icons.video_library_outlined)),
+      IconButton(onPressed: () => Navigator.pushNamed(context, AppRoutes.notifications), icon: Icon(Icons.notifications_outlined)),
+      IconButton(onPressed: () => Navigator.pushNamed(context, AppRoutes.account), icon: Icon(Icons.account_circle_outlined)),
       SizedBox(width: 2.w),
     ];
   }
@@ -182,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
             if (_selectedProjects.isNotEmpty) {
               _toggleSelection(project.id);
             } else {
-              // TODO: Navigate to AI Chat or Editor
+              Navigator.pushNamed(context, AppRoutes.aiChat);
             }
           },
           onLongPress: () => _toggleSelection(project.id),

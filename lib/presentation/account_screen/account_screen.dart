@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../routes/app_routes.dart';
 import '../../widgets/shared/glass_container.dart';
 import '../../widgets/shared/neon_button.dart';
 
@@ -119,7 +120,9 @@ class AccountScreen extends StatelessWidget {
            SizedBox(height: 1.h),
           _buildUsageMeter('Render Minutes', 12, 60, 'min'),
            SizedBox(height: 2.h),
-          _buildAccountAction(context, 'Manage Subscription', () {}),
+          _buildAccountAction(context, 'Manage Subscription', () {
+            Navigator.pushNamed(context, AppRoutes.pricing);
+          }),
         ],
       ),
     );
@@ -160,7 +163,9 @@ class AccountScreen extends StatelessWidget {
                 color: Colors.white)),
         SizedBox(height: 1.h),
         _buildAccountAction(context, 'Update Payment Method', () {}),
-        _buildAccountAction(context, 'View Invoices', () {}),
+        _buildAccountAction(context, 'View Invoices', () {
+          Navigator.pushNamed(context, AppRoutes.invoices);
+        }),
       ],
     ));
   }

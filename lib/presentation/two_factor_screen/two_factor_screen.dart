@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../routes/app_routes.dart';
 import '../../widgets/shared/background_shape.dart';
 import '../../widgets/shared/glass_container.dart';
 import '../../widgets/shared/neon_button.dart';
@@ -80,8 +81,7 @@ class _TwoFactorScreenState extends State<TwoFactorScreen>
     // Mock verification
     if (code == '123456') {
       // Success
-      print('Verification successful!');
-      // TODO: Navigate to home screen
+      Navigator.pushNamedAndRemoveUntil(context, AppRoutes.home, (route) => false);
     } else {
       setState(() {
         _errorMessage = 'Invalid code. Please try again.';
@@ -92,7 +92,9 @@ class _TwoFactorScreenState extends State<TwoFactorScreen>
       });
     }
 
-    setState(() => _isLoading = false);
+    if (mounted) {
+      setState(() => _isLoading = false);
+    }
   }
 
   @override
@@ -127,13 +129,13 @@ class _TwoFactorScreenState extends State<TwoFactorScreen>
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: NeonButton(
-                width: 50,
-                height: 50,
-                isPrimary: false,
-                onPressed: () => Navigator.pop(context),
-                text: '',
-                child: Icon(Icons.arrow_back, color: Colors.white),
+              child: GlassContainer(
+                padding: const EdgeInsets.all(8),
+                borderRadius: BorderRadius.circular(12),
+                child: IconButton(
+                  icon: Icon(Icons.arrow_back, color: Colors.white),
+                  onPressed: () => Navigator.pop(context),
+                ),
               ),
             ),
           ),

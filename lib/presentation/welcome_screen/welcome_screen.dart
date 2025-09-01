@@ -5,6 +5,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../widgets/shared/background_shape.dart';
 import '../../widgets/shared/glass_container.dart';
+import '../../routes/app_routes.dart';
 import '../../widgets/shared/neon_button.dart';
 import '../../widgets/custom_icon_widget.dart';
 
@@ -67,14 +68,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   }
 
   void _navigateToLogin() {
-    // TODO: Replace with actual navigation when routes are set up
-    Navigator.pushNamed(context, '/login-screen');
+    Navigator.pushNamed(context, AppRoutes.login);
   }
 
   void _navigateToSignUp() {
-    // TODO: Replace with actual navigation when routes are set up
-    // Navigator.pushNamed(context, '/signup-screen');
-    print("Navigate to Sign Up");
+    Navigator.pushNamed(context, AppRoutes.signUp);
   }
 
   @override

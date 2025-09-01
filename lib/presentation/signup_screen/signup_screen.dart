@@ -6,6 +6,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../widgets/shared/background_shape.dart';
 import '../../widgets/shared/glass_container.dart';
+import '../../routes/app_routes.dart';
 import '../../widgets/shared/neon_button.dart';
 import '../../widgets/shared/custom_text_field.dart';
 
@@ -80,10 +81,9 @@ class _SignUpScreenState extends State<SignUpScreen>
     }
     setState(() => _isLoading = true);
     await Future.delayed(const Duration(seconds: 2));
-    // TODO: Implement sign up logic
-    print("Signing up...");
     setState(() => _isLoading = false);
-    // TODO: Navigate to next screen (e.g., email verification or home)
+    // Navigate to 2FA screen after successful signup
+    Navigator.pushNamed(context, AppRoutes.twoFactor);
   }
 
   void _showErrorToast(String message) {
@@ -123,13 +123,13 @@ class _SignUpScreenState extends State<SignUpScreen>
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: NeonButton(
-                width: 50,
-                height: 50,
-                isPrimary: false,
-                onPressed: () => Navigator.pop(context),
-                text: '',
-                child: Icon(Icons.arrow_back, color: Colors.white),
+              child: GlassContainer(
+                padding: const EdgeInsets.all(8),
+                borderRadius: BorderRadius.circular(12),
+                child: IconButton(
+                  icon: Icon(Icons.arrow_back, color: Colors.white),
+                  onPressed: () => Navigator.pop(context),
+                ),
               ),
             ),
           ),
@@ -335,7 +335,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                   color: Color(0xFF5A67F8), fontWeight: FontWeight.bold),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  Navigator.pushNamed(context, '/login-screen');
+                  Navigator.pushNamed(context, AppRoutes.login);
                 }),
         ],
       ),

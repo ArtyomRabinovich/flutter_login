@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../routes/app_routes.dart';
 import '../../widgets/shared/glass_container.dart';
 import '../../widgets/shared/neon_button.dart';
 
@@ -173,7 +174,9 @@ class PlanCard extends StatelessWidget {
            SizedBox(height: 3.h),
           NeonButton(
             text: 'Select Plan',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, AppRoutes.checkout);
+            },
             isPrimary: plan.isRecommended,
           )
         ],
