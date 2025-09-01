@@ -7,6 +7,7 @@ class GlassContainer extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   final BorderRadius? borderRadius;
+  final bool hasBorder;
 
   const GlassContainer({
     Key? key,
@@ -14,6 +15,7 @@ class GlassContainer extends StatelessWidget {
     this.padding,
     this.margin,
     this.borderRadius,
+    this.hasBorder = true,
   }) : super(key: key);
 
   @override
@@ -41,7 +43,7 @@ class GlassContainer extends StatelessWidget {
       ),
       // Use a nested container with a 1.5px padding to create the "border" effect
       child: Padding(
-        padding: const EdgeInsets.all(1.5),
+        padding: hasBorder ? const EdgeInsets.all(1.5) : EdgeInsets.zero,
         child: ClipRRect(
           borderRadius: effectiveBorderRadius,
           child: BackdropFilter(

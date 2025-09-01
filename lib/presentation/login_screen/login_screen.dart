@@ -103,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen>
 
         // Navigate to main app (splash screen for demo)
         await Future.delayed(const Duration(milliseconds: 500));
-        Navigator.pushReplacementNamed(context, '/splash-screen');
+        Navigator.pushReplacementNamed(context, '/home-screen');
       }
     } else {
       // Error handling
@@ -131,6 +131,10 @@ class _LoginScreenState extends State<LoginScreen>
 
   void _handleForgotPassword() {
     Navigator.pushNamed(context, '/forgot-password-screen');
+  }
+
+  void _handleSignUp() {
+    Navigator.pushNamed(context, '/signup-screen');
   }
 
   @override
@@ -192,6 +196,7 @@ class _LoginScreenState extends State<LoginScreen>
                   },
                   onLogin: _handleLogin,
                   onForgotPassword: _handleForgotPassword,
+                  onSignUp: _handleSignUp,
                   validateEmail: _validateEmail,
                   validatePassword: _validatePassword,
                 ),
@@ -236,6 +241,7 @@ class GlassLoginForm extends StatelessWidget {
   final VoidCallback onTogglePasswordVisibility;
   final VoidCallback onLogin;
   final VoidCallback onForgotPassword;
+  final VoidCallback onSignUp;
   final String? Function(String?) validateEmail;
   final String? Function(String?) validatePassword;
 
@@ -251,6 +257,7 @@ class GlassLoginForm extends StatelessWidget {
     required this.onTogglePasswordVisibility,
     required this.onLogin,
     required this.onForgotPassword,
+    required this.onSignUp,
     required this.validateEmail,
     required this.validatePassword,
   }) : super(key: key);
@@ -328,7 +335,21 @@ class GlassLoginForm extends StatelessWidget {
                       ),
                       onFieldSubmitted: (_) => onLogin(),
                     ),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 10),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: onForgotPassword,
+                        child: Text(
+                          'Forgot Password?',
+                          style: TextStyle(
+                            color: Colors.white.withAlpha((255 * 0.70).round()),
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
                     _LoginButton(
                       onPressed: isLoading ? null : onLogin,
                       isLoading: isLoading,
@@ -395,7 +416,7 @@ class GlassLoginForm extends StatelessWidget {
                     // Don't have an account text
                     Center(
                       child: TextButton(
-                        onPressed: onForgotPassword,
+                        onPressed: onSignUp,
                         child: Text(
                           "Don't have an account? Sign up.",
                           style: TextStyle(

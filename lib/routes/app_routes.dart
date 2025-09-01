@@ -17,6 +17,7 @@ import '../presentation/notifications_screen/notifications_screen.dart';
 import '../presentation/settings_screen/settings_screen.dart';
 import '../presentation/outputs_screen/outputs_screen.dart';
 import '../presentation/help_screen/help_screen.dart';
+import '../presentation/learn_more_screen/learn_more_screen.dart';
 
 class AppRoutes {
   // Route constants
@@ -39,6 +40,7 @@ class AppRoutes {
   static const String settings = '/settings-screen';
   static const String outputs = '/outputs-screen';
   static const String help = '/help-screen';
+  static const String learnMore = '/learn-more-screen';
 
 
   static Map<String, WidgetBuilder> routes = {
@@ -61,5 +63,6 @@ class AppRoutes {
     settings: (context) => const SettingsScreen(),
     outputs: (context) => const OutputsScreen(),
     help: (context) => const HelpScreen(),
+    learnMore: (context) => const LearnMoreScreen(),
   };
 }

@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../widgets/shared/glass_container.dart';
-import '../../widgets/shared/neon_button.dart';
 
 class GlobalLibraryScreen extends StatelessWidget {
   const GlobalLibraryScreen({Key? key}) : super(key: key);
@@ -89,6 +88,7 @@ class AssetCard extends StatelessWidget {
       padding: EdgeInsets.zero,
       margin: EdgeInsets.zero,
       borderRadius: BorderRadius.circular(12),
+      hasBorder: false,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
         child: Image.network(
@@ -160,7 +160,7 @@ class BrandKitView extends StatelessWidget {
               color: color,
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Center(child: Text('#${color.value.toRadixString(16).substring(2)}', style: GoogleFonts.getFont('Source Code Pro', color: Colors.white, shadows: [Shadow(blurRadius: 2)]))),
+            child: Center(child: Text('#${((color.r * 255).round()).toRadixString(16).padLeft(2, '0')}${((color.g * 255).round()).toRadixString(16).padLeft(2, '0')}${((color.b * 255).round()).toRadixString(16).padLeft(2, '0')}', style: GoogleFonts.getFont('Source Code Pro', color: Colors.white, shadows: [Shadow(blurRadius: 2)]))),
           );
         },
       ),

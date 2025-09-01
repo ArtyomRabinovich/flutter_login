@@ -77,7 +77,7 @@ class SettingsScreen extends StatelessWidget {
       ),
       _buildSettingRow(
         'Enable Notifications',
-        trailing: Switch(value: true, onChanged: (val) {}, activeColor: Color(0xFF5A67F8)),
+        trailing: Switch(value: true, onChanged: (val) {}, activeThumbColor: Color(0xFF5A67F8)),
         onTap: null, // No action on row tap
       ),
     ]);
@@ -95,7 +95,7 @@ class SettingsScreen extends StatelessWidget {
       ),
       _buildSettingRow(
         'Allow Analytics',
-        trailing: Switch(value: false, onChanged: (val) {}, activeColor: Color(0xFF5A67F8)),
+        trailing: Switch(value: false, onChanged: (val) {}, activeThumbColor: Color(0xFF5A67F8)),
         onTap: null,
       ),
     ]);

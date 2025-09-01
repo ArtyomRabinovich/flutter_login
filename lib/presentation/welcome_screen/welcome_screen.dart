@@ -75,6 +75,10 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     Navigator.pushNamed(context, AppRoutes.signUp);
   }
 
+  void _navigateToLearnMore() {
+    Navigator.pushNamed(context, AppRoutes.learnMore);
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -171,9 +175,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                       ),
                       const Spacer(flex: 1),
                       TextButton(
-                        onPressed: () {
-                          // TODO: Implement Learn More
-                        },
+                        onPressed: _navigateToLearnMore,
                         child: Text(
                           'Learn more',
                           style: GoogleFonts.inter(

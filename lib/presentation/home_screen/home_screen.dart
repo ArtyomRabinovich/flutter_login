@@ -195,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
   SliverGridDelegate _gridDelegate() {
     return SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: 2,
-      childAspectRatio: 0.8,
+      childAspectRatio: 0.75,
       crossAxisSpacing: 3.w,
       mainAxisSpacing: 3.w,
     );
@@ -259,7 +259,7 @@ class ProjectCard extends StatelessWidget {
 
   Widget _buildThumbnail() {
     return Expanded(
-      flex: 3,
+      flex: 2,
       child: ClipRRect(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
         child: Image.network(
@@ -274,36 +274,50 @@ class ProjectCard extends StatelessWidget {
 
   Widget _buildInfo() {
     return Expanded(
-      flex: 2,
+      flex: 3,
       child: Padding(
         padding: EdgeInsets.all(3.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              project.title,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.inter(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 13.sp,
-                  color: Colors.white),
+            // Let text take only what's available and shrink if needed.
+            Flexible(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    project.title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: GoogleFonts.inter(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13.sp,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(height: 0.3.h),
+                  Text(
+                    'Modified: ${project.lastModified.day}/${project.lastModified.month}',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: GoogleFonts.inter(
+                      fontSize: 10.sp,
+                      color: Colors.white.withAlpha((255 * 0.6).round()),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 0.5.h),
-            Text(
-              'Modified: ${project.lastModified.day}/${project.lastModified.month}',
-              style: GoogleFonts.inter(
-                  fontSize: 10.sp, color: Colors.white.withAlpha((255 * 0.6).round())),
-            ),
-            Spacer(),
+            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(Icons.auto_awesome, size: 5.w, color: Color(0xFFC73EF1)),
-                Icon(Icons.cut, size: 5.w, color: Color(0xFF5A67F8)),
-                Icon(Icons.more_vert, size: 5.w, color: Colors.white70),
+              children: const [
+                Icon(Icons.auto_awesome, size: 18, color: Color(0xFFC73EF1)),
+                Icon(Icons.cut,          size: 18, color: Color(0xFF5A67F8)),
+                Icon(Icons.more_vert,    size: 18, color: Colors.white70),
               ],
-            )
+            ),
           ],
         ),
       ),
